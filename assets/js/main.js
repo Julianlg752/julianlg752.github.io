@@ -201,4 +201,4 @@ window.addEventListener('popstate', () => {
 // Console Message
 // ==========================================
 console.log('%c👋 Welcome to my portfolio!', 'font-size: 20px; color: #2563eb; font-weight: bold;');
-console.log('%cInterested in the code? Check out the repository: https://github.com/Julianlg752/julianlg752.github.io', 'font-size: 14px; color: #a3a3a3;');
+console.log('%cInterested in the code? View the source on GitHub!', 'font-size: 14px; color: #a3a3a3;');
