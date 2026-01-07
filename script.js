@@ -91,3 +91,6 @@ window.addEventListener('scroll', () => {
 // Log a welcome message
 console.log('%cWelcome to Julian LG\'s Portfolio!', 'color: #2563eb; font-size: 20px; font-weight: bold;');
 console.log('%cBuilt with passion and modern web technologies.', 'color: #6b7280; font-size: 14px;');
+
+// Set current year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
