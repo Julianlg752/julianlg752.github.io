@@ -135,12 +135,6 @@ function updateActiveLink() {
   }
 }
 
-// Update active link on scroll
-window.addEventListener('scroll', updateActiveLink);
-
-// Set initial active link
-document.addEventListener('DOMContentLoaded', updateActiveLink);
-
 // ==========================================
 // Performance Optimization - Throttle Scroll
 // ==========================================
@@ -160,6 +154,9 @@ function throttle(func, wait) {
 window.addEventListener('scroll', throttle(() => {
   updateActiveLink();
 }, 100));
+
+// Set initial active link
+document.addEventListener('DOMContentLoaded', updateActiveLink);
 
 // ==========================================
 // Add Loading Animation to External Links
