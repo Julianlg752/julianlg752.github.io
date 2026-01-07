@@ -1,0 +1,55 @@
+- category: Frontend
+  items:
+    - name: HTML5
+      icon: fab fa-html5
+    - name: CSS3
+      icon: fab fa-css3-alt
+    - name: JavaScript
+      icon: fab fa-js
+    - name: React
+      icon: fab fa-react
+    - name: Vue.js
+      icon: fab fa-vuejs
+    - name: Tailwind CSS
+      icon: fas fa-wind
+
+- category: Backend
+  items:
+    - name: Node.js
+      icon: fab fa-node-js
+    - name: Python
+      icon: fab fa-python
+    - name: PHP
+      icon: fab fa-php
+    - name: Express
+      icon: fas fa-server
+    - name: Django
+      icon: fas fa-code
+    - name: REST APIs
+      icon: fas fa-exchange-alt
+
+- category: Database
+  items:
+    - name: MySQL
+      icon: fas fa-database
+    - name: PostgreSQL
+      icon: fas fa-database
+    - name: MongoDB
+      icon: fas fa-leaf
+    - name: Redis
+      icon: fas fa-circle
+
+- category: Tools & DevOps
+  items:
+    - name: Git
+      icon: fab fa-git-alt
+    - name: Docker
+      icon: fab fa-docker
+    - name: Linux
+      icon: fab fa-linux
+    - name: AWS
+      icon: fab fa-aws
+    - name: CI/CD
+      icon: fas fa-sync-alt
+    - name: VS Code
+      icon: fas fa-code
