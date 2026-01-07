@@ -1,0 +1,45 @@
+# Site settings
+title: Julian LG
+description: Full Stack Developer Portfolio
+author: Julian LG
+email: contact@julianlg.dev
+url: "https://julianlg752.github.io"
+baseurl: ""
+
+# GitHub Pages settings
+github_username: Julianlg752
+linkedin_username: julianlg752
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Exclude files from Jekyll build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# Include files
+include:
+  - _pages
+
+# Collections (for future expansion if needed)
+# collections:
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
