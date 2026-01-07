@@ -1,0 +1,29 @@
+- name: Haze Tech Restoration
+  description: Professional water damage and mold restoration services website with online booking system.
+  technologies:
+    - WordPress
+    - PHP
+    - JavaScript
+    - Custom Theme
+  link: https://hazetechrestoration.com/
+  featured: true
+
+- name: Julian FPV
+  description: FPV drone photography and videography portfolio showcasing aerial cinematography work.
+  technologies:
+    - HTML5
+    - CSS3
+    - JavaScript
+    - Responsive Design
+  link: https://julianfpv.com
+  featured: true
+
+- name: Portfolio Website
+  description: Personal portfolio website built with Jekyll and GitHub Pages featuring a minimalistic dark theme.
+  technologies:
+    - Jekyll
+    - HTML5
+    - CSS3
+    - JavaScript
+  link: https://julianlg752.github.io
+  featured: true

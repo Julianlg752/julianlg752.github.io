@@ -1,0 +1,17 @@
+email:
+  label: Email
+  value: contact@julianlg.dev
+  icon: fas fa-envelope
+  link: mailto:contact@julianlg.dev
+
+github:
+  label: GitHub
+  value: Julianlg752
+  icon: fab fa-github
+  link: https://github.com/Julianlg752
+
+linkedin:
+  label: LinkedIn
+  value: julianlg752
+  icon: fab fa-linkedin
+  link: https://www.linkedin.com/in/julianlg752
