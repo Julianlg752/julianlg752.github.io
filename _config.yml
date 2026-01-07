@@ -29,8 +29,8 @@ exclude:
 include:
   - _pages
 
-# Collections (if needed in future)
-collections:
+# Collections (for future expansion if needed)
+# collections:
 
 # Defaults
 defaults:
