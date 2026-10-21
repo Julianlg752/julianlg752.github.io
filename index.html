@@ -1,220 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Julian Linares - Full Stack Developer Portfolio">
-    <title>Julian Linares - Full Stack Developer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julian Linares, backend engineer</title>
+<meta name="description" content="Julian Linares is a backend engineer who writes Go. 8+ years building microservices, REST APIs and LLM-powered services. Based in Maryland.">
+<meta property="og:title" content="Julian Linares, backend engineer">
+<meta property="og:description" content="Go, Python and LLM integration. Builder of GoLive CMS.">
+<meta property="og:url" content="https://julianlg752.github.io/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #eef3f5;
+  --ink: #10212e;
+  --muted: #4f6472;
+  --rule: #c9d6dc;
+  --gopher: #00add8;
+  --link: #00708c;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0d1820;
+    --ink: #e4edf1;
+    --muted: #93a7b3;
+    --rule: #24343f;
+    --gopher: #3cc6e6;
+    --link: #5fd2ec;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 "Instrument Sans", system-ui, sans-serif;
+}
+a { color: var(--link); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--gopher); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
+
+/* Masthead */
+.top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1rem; padding-top: 1.5rem; font-weight: 500;
+}
+.top .home { color: inherit; text-decoration: none; font-weight: 600; }
+.top nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.top nav a { color: var(--ink); text-decoration: none; }
+.top nav a:hover { color: var(--link); }
+
+/* Hero: the one loud thing on the page */
+.hero { padding: clamp(4rem, 12vw, 9rem) 0 clamp(3rem, 8vw, 6rem); }
+.hero h1 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-weight: 800;
+  font-size: clamp(3.25rem, 13vw, 8.5rem);
+  line-height: .9;
+  letter-spacing: -.035em;
+  margin: 0;
+}
+.hero h1 .run { display: block; }
+.trace {
+  display: block; width: 100%; max-width: 46rem; height: 28px;
+  margin: 1.75rem 0 2rem; color: var(--gopher); overflow: visible;
+}
+.trace path { stroke-dasharray: 900; stroke-dashoffset: 900; animation: draw 1.6s .3s cubic-bezier(.6,.1,.2,1) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.lede { font-size: 1.25rem; line-height: 1.5; max-width: 38rem; margin: 0 0 2rem; }
+.lede strong { font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; }
+.btn {
+  display: inline-block; padding: .8rem 1.3rem; border-radius: 999px;
+  background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 600;
+}
+.btn:hover { background: var(--link); }
+
+/* Sections */
+section { padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--rule); }
+h2 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-variation-settings: "opsz" 48;
+  font-weight: 700; font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+  line-height: 1.05; letter-spacing: -.02em; margin: 0 0 2rem;
+}
+
+/* Work rows */
+.work { list-style: none; margin: 0; padding: 0; }
+.work li {
+  display: grid; grid-template-columns: 15rem 1fr 13rem; gap: .5rem 2rem;
+  padding: 1.5rem 0; border-bottom: 1px solid var(--rule);
+}
+.work li:first-child { border-top: 1px solid var(--rule); }
+.work h3 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 1.375rem; line-height: 1.15; margin: 0;
+}
+.work p { margin: 0; max-width: 40rem; }
+.where { color: var(--muted); font-size: .9375rem; }
+.where b { display: block; color: var(--ink); font-weight: 600; }
+.live::before {
+  content: ""; display: inline-block; width: .5rem; height: .5rem; border-radius: 50%;
+  background: var(--gopher); margin-right: .45rem; vertical-align: .08em;
+}
+
+/* Timeline */
+.jobs { margin: 0; }
+.job { display: grid; grid-template-columns: 15rem 1fr; gap: .25rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
+.job:first-child { border-top: 1px solid var(--rule); }
+.job dt { color: var(--muted); font-variant-numeric: tabular-nums; }
+.job dd { margin: 0; max-width: 42rem; }
+.job dd b { font-weight: 600; }
+.job dd span { display: block; color: var(--muted); }
+
+/* Tools */
+.tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem 2rem; margin: 0; }
+.tools dt { font-weight: 600; margin-bottom: .25rem; }
+.tools dd { margin: 0; color: var(--muted); }
+.note { margin: 2rem 0 0; color: var(--muted); max-width: 40rem; }
+
+/* Contact */
+.contact p { max-width: 36rem; margin: 0 0 1.5rem; font-size: 1.125rem; }
+.mail {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 6vw, 3.5rem); letter-spacing: -.02em;
+  color: var(--ink); word-break: break-word;
+}
+.mail:hover { color: var(--link); }
+footer { padding: 2.5rem 0 3rem; color: var(--muted); font-size: .9375rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+footer a { color: var(--muted); }
+
+@media (max-width: 52rem) {
+  .work li, .job { grid-template-columns: 1fr; }
+}
+@media (max-width: 30rem) {
+  .top { flex-direction: column; gap: .5rem; }
+  .top nav { gap: 1rem; font-size: .9375rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trace path { animation: none; stroke-dashoffset: 0; }
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">Julian Linares</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+<div class="wrap">
+  <header class="top">
+    <a class="home" href="/">Julian Linares</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm <span class="highlight">Julian Linares</span></h1>
-            <p class="hero-subtitle">Full Stack Developer & Web Solutions Architect</p>
-            <p class="hero-description">
-                I build modern, responsive websites and web applications that solve real-world problems.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <a href="#about"><i class="fas fa-chevron-down"></i></a>
-        </div>
+  <main>
+    <div class="hero">
+      <h1><span class="run">I build</span> <span class="run">backends</span> <span class="run">that keep</span> <span class="run">running.</span></h1>
+      <svg class="trace" viewBox="0 0 736 28" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 14 H170 L182 4 L196 24 L210 14 H420 L432 6 L444 22 L456 14 H736" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <p class="lede">I'm a backend engineer who writes mostly <strong>Go</strong>, with Python and Next.js when the job needs it. Over 8+ years I've built microservices, REST APIs and high-concurrency services, and lately a lot of LLM integration with the Claude and OpenAI APIs. I'm in Maryland, open to remote work or a move to the San Francisco Bay Area.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:julianlg97@gmail.com">Email me</a>
+        <a href="https://www.linkedin.com/in/7juli%C3%A1nlinares0/">LinkedIn</a>
+        <a href="https://github.com/Julianlg752">GitHub</a>
+      </div>
+    </div>
+
+    <section id="work" aria-labelledby="work-h">
+      <h2 id="work-h">What I'm building</h2>
+      <ul class="work">
+        <li>
+          <h3>GoLive CMS</h3>
+          <p>A headless CMS that hosts several websites from one backend. I own the backend end to end: API design, data models, JWT auth, Docker deployment, monitoring and fixing things when they break. I designed and shipped it with heavy help from Claude Code.</p>
+          <div class="where"><b class="live">Live, 4 paying clients</b>Go, Next.js, MySQL, Redis, DigitalOcean<br><a href="https://golivecms.site">golivecms.site</a></div>
+        </li>
+        <li>
+          <h3>Content orchestrator</h3>
+          <p>A service that reads the news, drafts 4 to 8 blog posts a week for sites I run, recovers on its own when a step fails, and decides what to improve from GA4, Search Console and Bing data.</p>
+          <div class="where"><b class="live">Running weekly</b>Go, Python, Claude API, structured JSON outputs</div>
+        </li>
+        <li>
+          <h3>Polish Vocabulary and Polish Sounds</h3>
+          <p>Two language-learning apps I built for a client's students: flashcards for vocabulary, and audio practice for pronunciation. Everything runs on the device.</p>
+          <div class="where"><b class="live">App Store and Google Play</b>React Native</div>
+        </li>
+        <li>
+          <h3>Drone Hangar</h3>
+          <p>I fly drones, and keeping track of battery health got old fast. So I built an app that logs battery maintenance for drone pilots.</p>
+          <div class="where"><b class="live">App Store</b>React Native</div>
+        </li>
+        <li>
+          <h3>Client websites</h3>
+          <p>Sites for small businesses, including a water damage restoration company and my own aerial video work.</p>
+          <div class="where"><a href="https://hazetechrestoration.com">hazetechrestoration.com</a><br><a href="https://julianfpv.com">julianfpv.com</a></div>
+        </li>
+      </ul>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a passionate Full Stack Developer with a keen eye for creating elegant solutions 
-                        to complex problems. My expertise spans both frontend and backend development, 
-                        allowing me to build complete, production-ready web applications.
-                    </p>
-                    <p>
-                        With experience in modern web technologies and frameworks, I specialize in creating 
-                        responsive, user-friendly interfaces and robust server-side architectures. I'm 
-                        committed to writing clean, maintainable code and staying up-to-date with the 
-                        latest industry trends.
-                    </p>
-                </div>
-            </div>
-        </div>
+    <section id="experience" aria-labelledby="exp-h">
+      <h2 id="exp-h">Where I've worked</h2>
+      <dl class="jobs">
+        <div class="job"><dt>2025 to now</dt><dd><b>Freelance backend engineer</b><span>GoLive CMS, the content orchestrator and the mobile apps above.</span></dd></div>
+        <div class="job"><dt>2025</dt><dd><b>Ludicrous Local Leads</b>, backend and automation engineer<span>Rebuilt lead intake and routing across forms, CRM and notifications, cutting manual work per lead by 80%. Built a site indexation monitor with Slack alerts.</span></dd></div>
+        <div class="job"><dt>2023 to 2025</dt><dd><b>Water restoration company</b>, estimator<span>Built insurance repair estimates in Xactimate from scope notes, sketches and job photos, fully remote.</span></dd></div>
+        <div class="job"><dt>2023</dt><dd><b>Ancient</b>, backend developer<span>Built pricing-change logging for traceability and worked across teams on distributed-system issues.</span></dd></div>
+        <div class="job"><dt>2021 to 2023</dt><dd><b>IPCOM</b>, backend developer<span>Built and ran 4 to 5 production Go microservices on GCP, including a high-concurrency SMPP service for real-time SMS. Kept legacy services running while shipping new ones.</span></dd></div>
+        <div class="job"><dt>2020 to 2021</dt><dd><b>Freelance Python developer</b><span>A Flask app with REST APIs for tracking rice-crop growth.</span></dd></div>
+        <div class="job"><dt>2016 to 2018</dt><dd><b>Proaplicaciones</b>, backend developer<span>A software startup where I learned Go. Built microservices, REST APIs and scrapers, and maintained legacy PHP while the team moved it to Go.</span></dd></div>
+      </dl>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Frontend Development</h3>
-                    <p>HTML5, CSS3, JavaScript, React, Vue.js, Responsive Design</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Backend Development</h3>
-                    <p>Node.js, Express, Python, REST APIs, Golang, Rust, Database Design</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Database Management</h3>
-                    <p>MySQL, PostgreSQL, MongoDB, Database Optimization</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>DevOps & Tools</h3>
-                    <p>Git, Docker, CI/CD, Cloud Deployment, Nginx</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile-First Approach</h3>
-                    <p>Progressive Web Apps, Responsive Design, Cross-Browser Testing</p>
-                </div>
-            </div>
-        </div>
+    <section id="tools" aria-labelledby="tools-h">
+      <h2 id="tools-h">Tools I use</h2>
+      <dl class="tools">
+        <div><dt>Languages</dt><dd>Go, Python, JavaScript, SQL</dd></div>
+        <div><dt>Backend</dt><dd>Microservices, REST APIs, goroutines and concurrency, SOAP/XML, SMPP, JWT and OAuth</dd></div>
+        <div><dt>Data</dt><dd>PostgreSQL, MySQL, Redis</dd></div>
+        <div><dt>Infrastructure</dt><dd>Docker, GitHub Actions, GitLab CI, GCP, DigitalOcean, Linux servers</dd></div>
+        <div><dt>Frontend and mobile</dt><dd>Next.js, React, React Native</dd></div>
+        <div><dt>AI</dt><dd>Claude API, OpenAI API, structured outputs, Claude Code</dd></div>
+      </dl>
+      <p class="note">Anthropic certifications: Claude 101, Claude Code 101 and Claude Code in Action. I speak Spanish natively and English fluently.</p>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://hazetechrestoration.com/" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Visit Site
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Haze Tech Restoration</h3>
-                        <p class="project-description">
-                            A comprehensive business website for a technology restoration service company. 
-                            Features a modern design, service showcases, contact forms, and responsive 
-                            layout optimized for all devices.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive Design</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://hazetechrestoration.com/" target="_blank" rel="noopener noreferrer" class="btn btn-small">
-                                <i class="fas fa-globe"></i> Live Site
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image project-image-2">
-                        <div class="project-overlay">
-                            <a href="https://julianfpv.com" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Visit Site
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Julian FPV</h3>
-                        <p class="project-description">
-                            A dynamic portfolio and showcase website for FPV (First Person View) drone 
-                            content. Features video galleries, interactive elements, and optimized media 
-                            loading for a smooth user experience.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Media Optimization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://julianfpv.com" target="_blank" rel="noopener noreferrer" class="btn btn-small">
-                                <i class="fas fa-globe"></i> Live Site
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="contact" class="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Let's talk</h2>
+      <p>If you're hiring for backend or Go work, I'd like to hear about it.</p>
+      <a class="mail" href="mailto:julianlg97@gmail.com">julianlg97@gmail.com</a>
     </section>
+  </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-text">
-                    <p>
-                        I'm always interested in hearing about new projects and opportunities. 
-                        Whether you have a question or just want to say hi, feel free to reach out!
-                    </p>
-                </div>
-                <div class="contact-links">
-                    <a href="https://github.com/Julianlg752" target="_blank" rel="noopener noreferrer" class="contact-link">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="mailto:julianlg@gmail.com" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/7juli%C3%A1nlinares0/" target="_blank" rel="noopener noreferrer" class="contact-link">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="year"></span> Julian Linares. All rights reserved.</p>
-            <p>Built with passion and modern web technologies.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <footer>
+    <span>Julian Linares, Maryland</span>
+    <a href="https://github.com/Julianlg752">GitHub</a>
+    <a href="https://www.linkedin.com/in/7juli%C3%A1nlinares0/">LinkedIn</a>
+  </footer>
+</div>
 </body>
 </html>
